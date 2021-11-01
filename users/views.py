@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 def home(request):
 
@@ -24,5 +25,8 @@ def register(request):
 
 @login_required
 def profile(request):
+    context = {
+        'posts': User.objects.all()
+                 }
 
-    return render(request,'users/profile.html')
+    return render(request,'users/profile.html',context)
