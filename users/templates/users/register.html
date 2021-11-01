@@ -1,12 +1,20 @@
-<html>
-    <body>
+{% extends "users/base.html" %}
+{%load crispy_forms_tags%}
+{% block content %}
+
+
+   
+
+
+
+
     <form method="post">
         {%csrf_token%}
-        {{form.as_ul}}
+        {{form|crispy}}
         <button type="submit">
             Submit
         </button>
     </form>
-</body>
 
-</html>
+
+{% endblock content %}

@@ -1,5 +1,22 @@
-<html>
-    <body>
-    Welcome {{user.username}}
-</body>
-</html>
+{% extends "users/base.html" %}
+
+{% block content %}
+
+
+   <h3> Welcome {{user.username}}</h3>
+   <h1>List of users</h1>
+   {%for post in posts%}
+   <table>
+   
+   <tr>
+    <td><b>User Name:</b></td>
+    <td>{{post.username}}</td>
+    <td></b></td>
+    <td></td>
+    <td><b>User email:</b></td>
+    <td>{{post.email}}</td>
+    
+</tr>
+</table>
+{%endfor%}
+{% endblock content %}
